@@ -1,0 +1,108 @@
+{% extends "user/base.html" %}
+{% block title %}Sign Up{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/signUp.css">
+{% endblock style %}
+{% block body %}
+<!-- SignUp -->
+<section id="SignUp" class="section-padding">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+          <div class="section-title">
+            <h1 class="display-4 text-white fw-semibold">Sign Up </h1>
+            <div class="line bg-white"></div>
+            <p class="text-white">
+              Register yourself here to avail the amazing content of I learning and its benefits to improove your skills .
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+       
+        <div class="col-lg-8">
+          <form
+          method="post"
+            class="row g-3 p-lg-5 p-4 bg-white theme-shadow"
+            data-aos="fade-down"
+            data-aos-delay="250"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <div class="form-group col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                name="fname"
+                placeholder="Enter  First Name"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                name="lname"
+                placeholder="Enter  last Name"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-12">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Enter Email address"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-12">
+              <input
+                type="number"
+                class="form-control"
+                name="phone"
+                placeholder="Enter Phone No"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-12">
+                <input
+                type="password"
+                class="form-control"
+                name="pass"
+                placeholder="Enter Password"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-6">
+                <select name="choosedBatch" class="form-control" id="yourFieldId" required>
+                    <option value="">Choose Batch </option>
+                    {% for B in Bs %}
+                    <option value="{{B.id}}">{{B.name}}</option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div class="form-group col-lg-6">
+                <input
+                type="file"
+                class="form-control"
+                name="image"
+                placeholder="Enter Password"
+                required
+              />
+            </div>
+            <div class="form-group col-lg-12 d-grid">
+              <button type="submit" class="btn btn-brand">Submit</button>
+              <small class="ms-auto my-3">If already sign up ,<a href="/login" class="mx-1"><b> Login </b></a> Here !</small>
+            </div>
+          </form>
+        </div>
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- end SignUp -->
+{% endblock body %}

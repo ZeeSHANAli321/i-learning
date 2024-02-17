@@ -1,0 +1,47 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Registering Complaint{% endblock title %}
+{% block settingActive %}active{% endblock settingActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+<style>
+    
+    a{
+        color:black;
+        text-decoration: none;
+    }
+</style>
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-solid fa-gear me-2"></i> Register a <span class="text-danger">Complaint</span></h2>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-8 mx-auto text-start ">
+                <form method="post" action="/student/settings/complain/">
+                    {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" value="{{st.email}} " required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Your Complaint</label>
+                    <textarea class="form-control" name="complain" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Send<i class="ms-1 fa-solid fa-paper-plane"></i></button>
+                </div> 
+                
+            </form>
+                
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock stContent %}

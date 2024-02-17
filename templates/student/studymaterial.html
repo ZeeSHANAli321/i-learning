@@ -1,0 +1,40 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Softwares{% endblock title %}
+{% block materialActive %}active{% endblock materialActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-brands fa-uncharted me-2"></i>Softwares </h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="display: flex;align-items: stretch;">
+                {% for s in sM %}
+                    <div class="col-lg-4 col-sm-6 mb-md-4 mb-2" >
+                        <div class="services text-center theme-shadow pt-lg-5 p-4 "style="height:100%;"id="batchCard">
+                            <div class="icon-box ">
+                                <img src={{s.image.url}} height="50px" />
+                            </div>
+                            <h5 class="mt-4 mb-3">{{s.name}}</h5>
+                            <p>{{s.about}}</p>
+                        
+                        
+                            <a href="{{s.file.url}}" download="{{s.name}}" class="btn btn-brand ms-lg-3">Download</span> </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+               
+             </div>
+             </div>
+    </div>
+</div>
+{% endblock stContent %}

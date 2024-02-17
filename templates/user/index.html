@@ -1,0 +1,531 @@
+{% extends "user/base.html" %}
+{% load static %}
+
+ {% block body %}
+
+<!-- Hero section -->
+<section id="hero" class=" d-flex align-items-center text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1
+          data-aos="fade-left"
+          class="text-uppercase fw-semibold display-1 text-white"
+        >
+          Welcome to i-learning
+        </h1>
+        <h5 class="text-white mt-3 mb-4" data-aos="fade-right">
+          i-Learning: Your Gateway to Mastery in Coding and Programming!
+        </h5>
+        <div data-aos="fade-up">
+          <a href="/signUp/" class="btn btn-brand me-2">Get Started</a>
+          <a href="/login/" class="btn btn-light ms-2">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Hero section -->
+
+<!-- About section -->
+<section id="About" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="50">
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold">About Us</h1>
+          <div class="line"></div>
+          <p>
+            "We're i-Learning, dedicated to accelerating coders and programmers
+            through innovative education. Join us on this tech-driven journey!"
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <div
+        class="col-lg-6 d-flex justify-content-center"
+        data-aos="fade-down"
+        data-aos-delay="50"
+      >
+        <img
+          src="/static/images/i-learning-logo-only.png"
+          style="height: 350px"
+          alt=""
+        />
+      </div>
+      <div data-aos="fade-down" data-aos-delay="150" class="col-lg-5">
+        {% comment %} <h1>About i-Learnign</h1>
+        <p class="mt-3 mb-4">
+          At i-Learning, we offer a range of services dedicated to advancing
+          coders and programmers. Join us for tech-focused education,
+          mentorship, and more
+        </p> {% endcomment %}
+        <div class="d-flex pt-4 mb-3">
+          <div class="icon-box me-4">
+            <i class="ri-24-hours-fill"></i>
+          </div>
+          <div>
+            <h5>24 Hours Tech support</h5>
+            <p>
+              Round-the-clock tech support available at i-Learning for your
+              convenience.
+            </p>
+          </div>
+        </div>
+        <div class="d-flex mb-3">
+          <div class="icon-box me-4">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <div>
+            <h5>Large No of Video library</h5>
+            <p>
+              "Access our vast video library for comprehensive learning
+              resources."
+            </p>
+          </div>
+        </div>
+        <div class="d-flex mb-3">
+          <div class="icon-box me-4">
+            <i class="ri-code-s-slash-fill"></i>
+          </div>
+          <div>
+            <h5>We are Awesome</h5>
+            <p>
+              We take pride in our awesomeness, backed by exceptional results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end About section -->
+
+<!-- Services section -->
+<section id="Services" class="section-padding border-top">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold">New Batches</h1>
+          <div class="line"></div>
+          <p>
+            Exciting news! We're launching new batches to expand your learning
+            opportunities. Join us and level up
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="150">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <h5 class="mt-4 mb-3">HTML 5</h5>
+          <p class="">
+            Unleash your creativity with our HTML batch. Learn the fundamentals
+            and create stunning web pages from scratch.
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="250">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-brands fa-css3-alt"></i>
+          </div>
+          <h5 class="mt-4 mb-3">CSS-3</h5>
+          <p class="">
+            Explore the latest in web design with our CSS4 course. Master
+            advanced styling for stunning websites!
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="350">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-brands fa-js"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Master JavaScript</h5>
+          <p class="">
+            Master web interactivity with our JavaScript course. Elevate your
+            coding skills for dynamic, feature-rich websites!
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="450">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Java</h5>
+          <p class="">
+            Excel in software development with our Java course. Master the
+            language for building robust, versatile applications!
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="550">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Python</h5>
+          <p class="">
+            Empower your programming journey with our Python course. Master the
+            versatile language for diverse applications!
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="650">
+        <div class="services theme-shadow p-lg-5 p-4">
+          <div class="icon-box">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Master Database</h5>
+          <p class="">
+            Master data management with our Database course. Excel in efficient
+            data handling and analysis!
+          </p>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Enroll now for success!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Services section -->
+
+<!-- Counters -->
+<section id="Counters" class="section-padding">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-lg-3 col-sm-6" data-aos="fade-down" data-aos-delay="150">
+        <h1 class="text-white display-4">90,000+</h1>
+        <h6 class="text-uppercase mt-3 mb-0 text-white">Total Downloads</h6>
+      </div>
+      <div class="col-lg-3 col-sm-6" data-aos="fade-down" data-aos-delay="250">
+        <h1 class="text-white display-4">50k+</h1>
+        <h6 class="text-uppercase mt-3 mb-0 text-white">Videos Solution</h6>
+      </div>
+      <div class="col-lg-3 col-sm-6" data-aos="fade-down" data-aos-delay="350">
+        <h1 class="text-white display-4">5M+</h1>
+        <h6 class="text-uppercase mt-3 mb-0 text-white">Trusted Students</h6>
+      </div>
+      <div class="col-lg-3 col-sm-6" data-aos="fade-down" data-aos-delay="450">
+        <h1 class="text-white display-4">100+</h1>
+        <h6 class="text-uppercase mt-3 mb-0 text-white">Team Members</h6>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Counters -->
+
+<!-- Portfolio -->
+<section id="Portfolio" class="section-padding">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 text-center" data-aos="fade-down" >
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold">Our Placements </h1>
+          <div class="line"></div>
+          <p>
+            Following are the company which takes  student from our training institute every year !
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" data-aos="fade-down">
+        <img src="{% static "images/placementImage.png" %}" style="width:100%;" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Portfolio -->
+
+<!-- Testimonials -->
+<section id="Testimonials" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold">Feedbacks</h1>
+          <div class="line"></div>
+          <p>
+            Following are the our one of the most talented student , and now
+            they are giving their Feedbacks for I-learning .
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row gx-4 gy-5">
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="50">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              "Great experience with i-Learning! Engaging courses, clear
+              content, and responsive support. Highly recommend for coding
+              enthusiasts."
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/about1.jpg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>Brad barley</h5>
+              <small>UX architect</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="150">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              i-Learning delivers concise yet comprehensive courses, making tech
+              skills acquisition fast and enjoyable.
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/theRock.jpeg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>The Rock</h5>
+              <small>Frontend developer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="250">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              i-Learning: Clear content, great support, and a game-changer in
+              tech education.
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/rdj.jpeg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>Robert downey</h5>
+              <small>Everything..</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="350">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              i-Learning: Clear content, great support, and a game-changer in
+              tech education.
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/bat.jpeg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>I am Batman</h5>
+              <small>I can buy anything .</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="450">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              i-Learning: Clear content, great support, and a game-changer in
+              tech education
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/john.jpeg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>John cena</h5>
+              <small>You cant see me</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="550">
+        <div class="testimonial">
+          <div class="testimonial-head p-4 bg-white theme-shadow">
+            <div class="text-warning">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p>
+              i-Learning: Clear content, great support, and a game-changer in
+              tech education.
+            </p>
+          </div>
+          <div class="testimonial-by mt-4 d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              src="/static/images/testimonial1.jpg"
+              style="height: 80px; width: 80px"
+              alt=""
+            />
+            <div class="ms-3">
+              <h5>Loren Mitchel</h5>
+              <small>UX architect</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Testimonials -->
+
+<!-- Contact -->
+<section id="Contact" class="section-padding">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+        <div class="section-title">
+          <h1 class="display-4 text-white fw-semibold">Get In Touch</h1>
+          <div class="line bg-white"></div>
+          <p class="text-white">
+            We'd love to hear from you! Whether you have questions, feedback, or
+            ideas, please don't hesitate to contact us anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+     
+      <div class="col-lg-8">
+        <form
+        method="post"
+          class="row g-3 p-lg-5 p-4 bg-white theme-shadow"
+          data-aos="fade-down"
+          data-aos-delay="250"
+        >
+          {% csrf_token %}
+          <div class="form-group col-lg-6">
+            <input
+              type="text"
+              class="form-control"
+              name="fname"
+              placeholder="Enter  First Name"
+              required
+            />
+          </div>
+          <div class="form-group col-lg-6">
+            <input
+              type="text"
+              class="form-control"
+              name="lname"
+              placeholder="Enter  last Name"
+              required
+            />
+          </div>
+          <div class="form-group col-lg-12">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Enter Email address"
+              required
+            />
+          </div>
+          <div class="form-group col-lg-12">
+            <input
+              type="text"
+              class="form-control"
+              name="sub"
+              placeholder="Enter Subject"
+              required
+            />
+          </div>
+          <div class="form-group col-lg-12">
+            <textarea
+              name="msg"
+              class="form-control"
+              rows="5"
+              placeholder="Enter Message"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group col-lg-12 d-grid">
+            <button type="submit" class="btn btn-brand">Send Message</button>
+          </div>
+        </form>
+      </div>
+   
+    </div>
+  </div>
+</section>
+<!-- end Contact -->
+
+
+{% endblock body %}

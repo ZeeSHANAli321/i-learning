@@ -1,0 +1,74 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Changing Password | {{st.fname}}{% endblock title %}
+{% block settingActive %}active{% endblock settingActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+<style>
+    #setting-options li{
+        border: 2px solid #0000002e;
+        list-style: none;
+        
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #setting-options li:hover{
+        transition: var(--transistion);
+       border: 2px solid var(--c-brand);
+    }
+    #setting-options li span:nth-child(2):hover{
+        transition: var(--transistion);
+        border: 2px solid var(--c-brand);
+    }
+    a{
+        color:black;
+        text-decoration: none;
+    }
+</style>
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-solid fa-gear me-2"></i> Change Your <span class="text-danger">Password</span></h2>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-8 mx-auto text-center ">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="oldPass">Enter your current Password :</label>
+                    <input type="password" name="oldPass">
+               
+                <hr/>
+               
+               <div class="newPassForm text-center ">
+                   
+                    {% csrf_token %}
+                        <label for="oldPass">Enter your new Password :</label>
+                        <input type="password" name="newPass"> <br>
+                       
+                        <button type="submit" class="btn btn-brand btn-primary py-1 m-2">Change Password</button>
+                    {% if passUpdated %}
+                    <div class="alert alert-success" role="alert">
+                        Password Changed succesfully!!
+                      </div>
+                    {% endif %}
+                    </form>
+                </div> 
+                
+               
+                
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock stContent %}

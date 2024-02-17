@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  {% block head %}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/static/images/i-learning-logo-only-white.png" type="image/png">
+    <title>{% block title %}i-learning{% endblock title %}</title>
+    {% comment %} Bootstrap styles {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    {% comment %} remix icon cdn for icons {% endcomment %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    {% comment %} Font Awesome icons  {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% comment %} animation on scale and my local css  {% endcomment %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="\static\css\index.css" />
+    {% block style %}{% endblock style %}
+  </head>
+  {% endblock head %}
+  <body  data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Nav-bar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/index/"
+          ><img src="\static\images\i-learning-logo.png" style="height: 55px" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#hero">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#About">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#Services">New Batches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#Portfolio">Our Placements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#Testimonials">Feedbacks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/index/#Contact">Contact Us</a>
+            </li>
+          </ul>
+          <a href="/signUp/" class="btn btn-brand ms-lg-3">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+    <!-- end Nav-bar -->
+    {% block body %}
+    
+    {% endblock body %}
+    <!-- Footer -->
+    <footer class="bg-dark">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-lg-3 col-sm-6">
+              
+             <a href="#"><img src="\static\images\i-learning-logo-white.png" style="height: 55px" alt=""
+              /></a>
+              <div class="line"></div>
+              <p>
+                "We're i-Learning, dedicated to accelerating coders and programmers through innovative education.
+                 Join us on this tech-driven journey!"
+              </p>
+              <div class="social-links">
+                <a href="#"><i class="ri-twitter-x-fill"></i></a>
+                <a href="#"><i class="ri-instagram-line"></i></a>
+                <a href="#"><i class="ri-github-fill"></i></a>
+                <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h5 class="mb-0 text-white">Services</h5>
+              <div class="line"></div>
+              <ul>
+                <li><a href="">DSA mastery</a></li>
+                <li><a href="">Web development</a></li>
+                <li><a href="">UX/UI developer</a></li>
+                <li><a href="">Competetive Programming</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h5 class="mb-0 text-white">About</h5>
+              <div class="line"></div>
+              <ul>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Company</a></li>
+                <li><a href="">Career</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h5 class="mb-0 text-white">CONTACT US</h5>
+              <div class="line"></div>
+              <ul>
+                <li>Maharajganj , Up, 273302</li>
+                <li>+91,8601782939</li>
+                <li><a href="">www.iLearning.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row g-4 justify-content-between">
+            <div class="col-auto">
+              <p class="mb-0">Copyright i-Learning, All right Reserverd.</p>
+            </div>
+            <div class="col-auto">
+              <p class="mb-0">Design By <a href="" style="color:var(--c-brand)">ZeeSHAN</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end Footer -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="\static\js\index.js"></script>
+    {% block js %}{% endblock js %}
+  </body>
+</html>

@@ -1,0 +1,95 @@
+{% extends "student/base.html" %}
+
+{% block title %}Payment:{{b.name}}{% endblock title %}
+
+{% block batchActive%}active{% endblock batchActive %}
+
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/profile.css">
+<style>
+    #priceTable tr td{
+        text-align: start;
+    }
+    #priceTable tr{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.372);
+    }
+</style>
+{% endblock stCss %}
+
+{% block stContent %}
+
+<div class="container mx-auto">
+    <div class="row">
+        <div class="col-md-10  mx-auto my-5 py-5 " id="profile-container" >
+            <div class="row">
+                
+                <div class="col-lg-5 mx-auto" >
+                   
+                    {% if paid %}
+                    <div class="services text-center  p-lg-5 p-md-4 ">
+                        <div class="icon-box ">
+                          <img src="/static/images/success.gif"style="height:150px" />
+                          <h3 class="text-success">Payment success !!</h3>
+                          <p>BATCH ADDED : <b style="color:var(--c-brand)">{{b.name}}</b></p>
+                            <a href="/student/myBatches/" >Go To My Batches</a>
+                         
+                      </div>
+                    </div>
+
+                    {% else %}
+                    <div class="services text-center theme-shadow p-lg-5 p-md-4 "id="batchCard">
+                      <div class="icon-box ">
+                        <h2>Zee<span style="color:var(--c-brand)">Pay</span></h2>
+                        <img src={{b.icon.url}} style="height:100px" />
+                       
+                    </div>
+                    <form method="Post">
+                        {% csrf_token %}
+                            <table id="priceTable">
+                                <tr>
+                                    <td>Name  </td>
+                                    <td><b class="ls-1" style="margin-left:10px; color:var(--c-brand)">{{st.fname}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Email </td>
+                                    <td><b class="ls-1" style="margin-left:10px;color:var(--c-brand)">{{st.email}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile No</td>
+                                    <td><b class="ls-1" style="margin-left:10px;color:var(--c-brand)">{{st.phone}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Final Amount </td>
+                                    <td><b class="ls-1" style="margin-left:10px;color:var(--c-brand)">{{b.finalPrice}}</b></td>
+                                </tr>
+                                <hr/>
+                                
+                                <tr>
+                                    <td>Password </td>
+                                    <td><b class="ls-1" style="margin-left:10px;color:var(--c-brand)"><input type='text' name='pass'></b></td>
+                                </tr>
+                            </table>
+                            <p>Enter Password to pay </p>
+                            {% if wrong %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                               Enter Correct Password!!
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                            {% endif %}
+                            
+                        
+                            <button type="submit" class="btn btn-brand btn-primary m-2 px-3">Pay</button>
+                            </div>
+                </form>
+                {% endif %}
+                </div>
+               
+                
+                
+
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock stContent %}

@@ -1,0 +1,98 @@
+{% extends "student/base.html" %}
+
+{% block title %}{{st.fname}}s Profile{% endblock title %}
+
+{% block profileActive %}active{% endblock profileActive %}
+
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/profile.css">
+{% endblock stCss %}
+
+{% block stContent %}
+
+<div class="container mx-auto">
+    <div class="row">
+        <div class="col-10  mx-auto my-5 py-5" id="profile-container" >
+            <div class="row">
+                
+                <div class="col-md-3" id="profile-pic-container">
+                    <div class="mx-auto" id="profile-pic">
+                        <a href="/student/profile/"><img src={{st.image.url}} style="width: 200px;"alt=""></a>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="col-md-9 py-3" id="profile-data-container">
+
+                    <div class="profile-head d-flex justify-content-between align-items-center">
+                        <h4>Profile details </h4>
+                        <small class="me-2"><a href="/student/editProfile">edit</a></small>
+                    </div>
+                    <div class="data-table">
+                        <table id="p-data-table">
+                            
+                            <tr>
+                                <td><small class="d-inline">Personal details </small></td>
+                                <td class="pe-5"> <hr></td>
+                            </tr>
+                            <tr>
+                                <td>First Name</td>
+                                <td class="text-black"><b>{{st.fname}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td class="text-black"><b>{{st.lname}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td class="text-black"><b>{{st.email}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Phone No </td>
+                                <td class="text-black"><b>{{st.phone}}</b></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td>
+                                <td class="pe-5"></td>
+                            </tr>
+                            <tr>
+                                <td><small class="d-inline">Personal details </small></td>
+                                <td class="pe-5"> <hr></td>
+                            </tr>
+                            <tr>
+                                <td>Batch</td>
+                                <td class="text-black"><b>
+                                    {% for b in st.sBatch.all %}
+                                    <span class="me-2">{{b.name}},</span>
+                                    {% endfor %}
+                                </b></td>
+                            </tr>
+                            <tr>
+                                <td>Heighest Qualification</td>
+                                <td class="text-black"><b>{{st.qualification}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>College </td>
+                                <td class="text-black"><b>{{st.college}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td class="text-black"><b>{{st.address}}</b></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock stContent %}

@@ -1,0 +1,109 @@
+{% extends "student/base.html" %} 
+{% load static %}
+{% block title %}{{st.fname}}s Dashboard{% endblock title %}
+{% block dashActive %}active{% endblock dashActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css" />
+<link rel="stylesheet" href="/static/css/student/profile.css">
+<style>
+    .d-batches{
+        height: 20vh;
+    background: aquamarine;
+    border-radius: 10px;
+    }
+    .short-links div{
+        height: 33%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        
+        border-radius: 10px;
+    }
+    /* #Thoughts{
+        position:relative;
+    }
+    #thought-title{
+        position: absolute;
+        top:0px;
+        
+    } */
+</style>
+
+{% endblock stCss %}
+ {% block stContent %}
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto my-5 " id="batchContainer">
+      
+    <!-- For dashboard profile  -->
+      <div class="row py-5 theme-shadow" style="background:url({% static "images/back01.png" %}) 0 0 no-repeat ; border-radius: 20px;">
+        <div class="col-md-11 mx-auto">
+           <div class="row ">
+                <div class=" mx-auto ">
+                    <div class="row d-flex justify-content-between ">
+                        
+                        <div class="col-md-3" id="profile-pic-container">
+                            <div class="mx-auto" id="profile-pic">
+                                <a href="/student/profile/"><img src={{st.image.url}} style="width: 200px;"alt=""></a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-md-9 px-2 py-3" >
+                            <div class="profile-head text-white">
+                                <h2 class=" text-center"> <b>Welcome</b> <span style="color:black">Back</span> </h2> <br>
+                                <h1 class="display-1 text-center text-white">{{st.fname}}</h1>
+                              
+                            </div>
+                        
+
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        
+          </div>
+          
+      </div>
+      <!--  for short links and my batch -->
+      <div class="row py-2 m-1 ">
+        <div class="col-md-6 theme-shadow d-flex justify-content-center align-items-center d-batches">
+           <a href="/student/myBatches/"> <h3><i class="fa-solid fa-people-roof me-2"></i>My Batches</h3></a>
+        </div>
+        <div class="col-md-6 short-links my-2">
+            <a href="/student/assignments/"> <div class=" theme-shadow col-md-12 px-3 mb-1 py-1" style="color: black;background: cornflowerblue;"><i class="fa-solid fa-list-check me-2"></i>Assignments</div></a>
+            <a href="/student/eNotes/"> <div class=" theme-shadow col-md-12 px-3 mb-1 py-1"  style="color: black;background-color: antiquewhite;"><i class="fa-solid fa-file-pdf me-2"></i>Notes</div></a>
+            <a href="/student/timings/">  <div class=" theme-shadow col-md-12 px-3 mb-1 py-1"  style="color: black;background: lightgreen;"><i class="fa-solid fa-clock me-2"></i>Class timings </div></a>
+
+        </div>
+      </div>
+     
+      <div class="row py-1  theme-shadow" style="background:url({% static "images/back01.png" %}) 0 0 no-repeat ; border-radius: 20px;">
+        <div class="col-md-11 mx-auto">
+           <div class="row ">
+                <div class=" mx-auto ">
+                    <div class="row d-flex justify-content-between " id="Thoughts">
+                        
+                       <span id="thought-title" style="color: var(--c-brand);"><b>Thought Of the Day</b></span>
+                        
+                        <span class="lead"><b>{{th.thoughtOfDay}}</b></span>
+                        
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock stContent %} {% block sJs %}
+<script>
+
+</script>
+{% endblock sJs %}

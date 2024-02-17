@@ -1,0 +1,124 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Assignments{% endblock title %}
+{% block assignActive %}active{% endblock assignActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+<style>
+    .upload-btn{
+        text-align: center;
+    display: block;
+    height: 35px;
+    width: 78px;
+        
+        position:relative;
+    }
+    
+    .upload-spot{
+        font-size: 20px;
+        position: absolute;
+    display: block;
+    height: 30px;
+    width: 20px;
+    overflow: hidden;
+    top: 0%;
+    left: 98%;
+        transform:translate(-50%,-50%)
+    }
+    .upload-spot input[type='File']{
+        position:absolute;
+        transform:scale(2);
+        opacity:0;
+    }
+</style>
+
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-solid fa-list-check me-2"></i> Assignments</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="display: flex;align-items: stretch;">
+                <div class="col-md-9 mx-auto">
+                    
+                    
+                    {% for s in st.sBatch.all %}
+                    {% if s.assignments.all %}
+                    <div class="alert alert-info" role="alert">
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 ">
+                               <b></b>
+                               <b>{{s.getLastAssign.name}}</b>
+                            </div>
+                            <div class="col-md-3 col-6  ">
+                                <a href={{s.getLastAssign.file}} class="btn btn-brand btn-primary">Download</a>
+                            </div>
+                            <div class="col-md-3 col-6 ">
+                                <div class="upload-btn">
+                                    <form method='Post'  class="" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text" value={{s.getLastAssign.name}} class="d-none" name="bname" />
+                                        <input type="text" value={{s.getLastAssign.id}} class="d-none" name="assignmentId" />
+                                        <button type="submit" class="btn btn-brand btn-danger">Upload</button>
+                                        
+                                        <div class="upload-spot ">
+                                           
+
+                                            <i class="ri-radio-button-fill" id="radio-icon" ></i>
+                                            <input type='file' id="fileInput" name='aFile' onclick="selected(event)" required/>
+                                        </div>
+                                      
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                     <small class="float-end">*Note submit before 12 pm or it will be reseted</small>
+                </div>
+               
+            </div>
+             </div>
+    </div>
+</div>
+{% endblock stContent %}
+{% block sJs %}
+<script>
+    {% comment %} const fileInput = document.getElementById('fileInput');
+    const icon = document.getElementById('radio-icon');
+    
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          
+            icon.style="color:blue"
+        } else {
+            icon.style="color:black"
+        }
+    }); {% endcomment %}
+    function selected(event) {
+
+        // Get the parent element of the input element
+        const parentElement = event.target.parentElement;
+        
+        // Find the <i> element within the parent element
+        const iconElement = parentElement.querySelector('i');
+        event.target.addEventListener('change', () => {
+            if (event.target.files.length > 0) {
+                iconElement.style.color = 'blue';
+            } else {
+                iconElement.style.color = 'black';
+            }
+        });
+    }
+
+</script>
+{% endblock sJs %}

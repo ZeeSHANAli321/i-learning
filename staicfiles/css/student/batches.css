@@ -1,0 +1,41 @@
+#batchContainer{
+    box-shadow: var(--box-all-shadow);
+    border-radius: 25px;
+}
+
+.allShadow{
+    box-shadow: var(--box-all-shadow);
+}
+.icon-box{
+    color: var(--c-brand);
+}
+.icon-box img{
+    height: 70px !important;
+
+}
+#batchCard{
+    border-radius: 20px;
+}
+#batchCard:hover{
+    background-color: var(--c-brand);
+    transition: var(---transistion);
+    color: white;
+}
+#batchCard:hover .icon-box,#batchCard:hover h5,#batchCard:hover .Price{
+    color: white!important;
+}
+.Price{
+    color:var(--c-brand); 
+}
+#batchCard:hover a{
+    background-color: white;
+    color: var(--c-brand);
+}
+#batchCard a{
+    background-color: var(--c-brand);
+    color: white;
+}
+#batchCard a:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+    color: white    ;
+}

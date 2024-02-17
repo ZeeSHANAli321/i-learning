@@ -1,0 +1,134 @@
+{% extends "student/base.html" %} 
+{% load static %} 
+{% block title %}Viewing {{b.name}}{% endblock title %}
+{% block myBatchesActive %}active{% endblock myBatchesActive %}
+ {% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css" />
+<link rel="stylesheet" href="/static/css/student/buyBatchPage.css" />
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: normal;
+        align-items: normal;
+        align-content: normal;
+      }
+      
+      .flex-items{
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+
+        border-radius:10px;
+
+      }
+      .video-container{
+        border-radius:15px;
+        display:block;
+        height:200px;
+        width:100%;
+        background:gray;
+      }
+      .card{
+        border:2px solid gray;
+        border-radius:15px;
+      }
+      .batchinfo table tr td{
+        width: 10%;
+      }
+      .video-overlay{
+    
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        position: absolute;
+        top: 0;
+      }
+      
+</style>
+
+{% endblock stCss %}
+ {% block stContent %}
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+      <div class="row">
+        <div class="col-12 px-3 mx-3">
+          <h2 id="categoriHead" class="d-flex align-items-center">
+            <img src="{{b.icon.url}}" class="me-2" /> <span style="color:var(--c-brand);">{{b.name}}</span>
+          </h2>
+        </div>
+      </div>
+      
+      <hr />
+        {% comment %} latest Notifications  {% endcomment %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Notification : {{notify.nTitle}}</strong> <br>{{notify.notification}}<br> <small class="">{{notify.nDate}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          
+      {% comment %} Batch details  {% endcomment %}
+      <div class="row py-2 px-4">
+        <p>{{b.moreDescriptin}}</p>
+        <p>{{b.about}}</p>
+        <div class="col-md-6">
+          <h4>Advantages of  <span style="color:var(--c-brand);">{{b.name}}</span></h4>
+          {% for line in b.advantages.splitlines %}
+          <li>{{ line }}</li>
+          {% endfor %}
+        </div>
+        {% comment %}  video preview container  {% endcomment %}
+        <div class="col-md-6 py-5" id="previewContainer">
+          <h4>Preview</h4>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/{{b.previewSrc}}"
+            title="YouTube video player"
+            
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <hr />
+    
+      {% comment %} batch video section  {% endcomment %}
+      <div class="row py-2  w-100  d-inline-flex px-4">
+        <h4>Latest Videos On <span style="color:var(--c-brand);">{{b.name}}</span></h4>
+        <hr/>
+        <div class="flex-container overflow-scroll">
+            {% for v in b.bVideo.all %}
+                    <div class="flex-items me-2 my-2">
+                        <div class="card" style="width: 18rem;">
+                            <div class="video-container overflow-hidden">
+                                <iframe
+                                src="https://www.youtube-nocookie.com/embed/{{v.videoSrc}}"
+                                title="YouTube video player"
+                                frameborder="0"
+                                style="height:100%"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                            <a href="/student/playVideo/{{v.id}}/{{b.id}}/"><div class="video-overlay"></div></a>
+                            </div>
+                            <div class="card-body pt-0">
+                                <small>{{v.vDate}}</small><small class="float-end">{{v.vDuration}}</small>
+                            <p class="card-text">{{v.vTitle}}</p>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+            <hr/>
+         </div>
+      </div>
+      <hr />
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock stContent %}

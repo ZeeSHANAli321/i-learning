@@ -1,0 +1,114 @@
+{% extends "student/base.html" %} 
+{% load static %} 
+{% block title %}Buying {{b.name}}{% endblock title %}
+{% block batchActive%}active{% endblock batchActive %}
+ {% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css" />
+<link rel="stylesheet" href="/static/css/student/buyBatchPage.css" />
+
+{% endblock stCss %}
+ {% block stContent %}
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+      <div class="row">
+        <div class="col-12 px-3 mx-3">
+          <h2 id="categoriHead" class="d-flex align-items-center">
+            <img src="{{b.icon.url}}" class="me-2" /> {{b.name}}
+          </h2>
+        </div>
+      </div>
+      <hr />
+      {% comment %} Batch details  {% endcomment %}
+      <div class="row py-2 px-4">
+        <p>{{b.moreDescriptin}}</p>
+        <p>{{b.about}}</p>
+        <div class="col-md-6">
+          <h4>Advantages of {{b.name}}</h4>
+          {% for line in b.advantages.splitlines %}
+          <li>{{ line }}</li>
+          {% endfor %}
+        </div>
+        <div class="col-md-6 py-5" id="previewContainer">
+          <h4>Preview</h4>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/{{b.previewSrc}}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <hr />
+      {% comment %} INSTRUCTOR and buying details {% endcomment %}
+      <div class="row py-2 px-lg-4 d-flex align-items-center">
+        <h5>INSTRUCTOR:<b style="color:var(--c-brand); margin-left:10px;">{{b.instructor.name}}</b></h5>
+       
+        <div class="col-md-6">
+         
+          <div class="col-lg-12 col-sm-12">
+            <div class="text-center theme-shadow p-lg-5 p-4" id="batchCard">
+              <div class="icon-box">
+                <img
+                  src="{{b.instructor.image.url}}"
+                  style="height: 150px !important"
+                />
+              </div>
+              <h5 class="mt-4 mb-3">{{b.instructor.name}}</h5>
+              <p
+                class=""
+                style="height: 100px; overflow: overlay; text-overflow: ellipsis"
+              >
+                {{b.instructor.about}}
+              </p>
+              <p>
+                <b>Qualifications - </b>{{b.instructor.qualifications}}
+                <b>Technologies - </b>{{b.instructor.technologies}}<br />
+              </p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 py-5" id="priceDiv">
+          <div class="col-lg-12 col-sm-12">
+            <div class="text-center theme-shadow p-lg-5 p-4" id="batchCard">
+              <div class="icon-box">
+                <img
+                  src="{{b.icon.url}}"
+                  style="height: 150px !important"
+                />
+              </div>
+              <h5 class="mt-4 mb-3">{{b.name}}</h5>
+              <table id="priceTable">
+                <tr>
+                    <td>Price </td>
+                    <td><b class="ls-1" style="margin-left:10px;">{{b.price}}/-</b></td>
+                </tr>
+                <tr>
+                    <td>Discount </td>
+                    <td><b class="ls-1" style="margin-left:10px;">{{b.discount}}%</b></td>
+                </tr>
+                <tr>
+                    <td>Discount Amount </td>
+                    <td><b class="ls-1" style="margin-left:10px;">{{b.discountedAmount}}</b></td>
+                </tr>
+                <tr>
+                    <td>Final Amount </td>
+                    <td><b class="ls-1" style="margin-left:10px;">{{b.finalPrice}}</b></td>
+                </tr>
+              </table>
+              
+              <a href="/student/paymentGateway/{{b.id}}" class="btn btn-brand ms-lg-3 my-3"
+                >Buy <span class="ms-2">Rs-{{b.finalPrice}}/-</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  </div>
+</div>
+{% endblock stContent %}

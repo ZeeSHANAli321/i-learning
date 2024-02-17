@@ -1,0 +1,133 @@
+{% extends "student/base.html" %} 
+{% load static %}
+{% block title %}Playing Video {{pb.name}} | {{pv.vTitle}}{% endblock title %}
+ {% block videoActive %}active{% endblock videoActive %} 
+ {% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css" />
+<style>
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: normal;
+        align-items: normal;
+        align-content: normal;
+      }
+      
+      .flex-items{
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+
+        border-radius:10px;
+
+      }
+      .video-container{
+        border-radius:15px;
+        display:block;
+        height:200px;
+        width:100%;
+        background:gray;
+      }
+      .card{
+        border:2px solid gray;
+        border-radius:15px;
+      }
+      .batchinfo table tr td{
+        width: 10%;
+      }
+      .video-overlay{
+    
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        position: absolute;
+        top: 0;
+      }
+      @media (max-width: 425px) {
+        #video {
+          height: 40vh !important;
+        }
+      }
+      @media (min-width: 425px) and (max-width: 768px) {
+        #video {
+          height: 50vh !important;
+        }
+      }
+      
+</style>
+
+{% endblock stCss %} 
+{% block stContent %}
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+      <div class="row">
+        <div class="col-md-11 mx-auto">
+          <iframe
+            id="video"
+            width="100%"
+            height="500"
+            src="https://www.youtube-nocookie.com/embed/{{pv.videoSrc}}"
+            title="YouTube video player"
+            frameborder="0"
+            
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            class="mb-0"
+          ></iframe>
+          <div class="card-body mt-0 p-2 " style="background:#e5e5e5;">
+            <small>{{pv.vDate}}</small
+            ><small class="float-end">{{pv.vDuration}}</small>
+            <p class="card-text">{{pv.vTitle}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row py-2  w-100  d-inline-flex px-4">
+        <h4>Latest Videos On <span style="color:var(--c-brand);">{{pb.name}}</span></h4>
+        <hr/>
+        <div class="flex-container overflow-scroll">
+            {% for v in pb.bVideo.all %}
+                    <div class="flex-items me-2  my-2">
+                        <div class="card" style="width: 18rem;">
+                            <div class="video-container overflow-hidden">
+                                <iframe
+                                src="https://www.youtube-nocookie.com/embed/{{v.videoSrc}}"
+                                title="YouTube video player"
+                                frameborder="0"
+                                style="height:100%"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                            <a href="/student/playVideo/{{v.id}}/{{pb.id}}/"><div class="video-overlay"></div></a>
+                            </div>
+                            <div class="card-body pt-0">
+                                <small>{{v.vDate}}</small><small class="float-end">{{v.vDuration}}</small>
+                            <p class="card-text">{{v.vTitle}}</p>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+            <hr/>
+         </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock stContent %} 
+{% block sJs %}
+<script>
+
+
+  {% comment %}   option.addEventListener('change',()=>{
+        console.log(option.value)
+        window.location.href=(`student/eNotes/${option.value}`)
+    }) {% endcomment %}
+</script>
+{% endblock sJs %}

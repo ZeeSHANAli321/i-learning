@@ -1,0 +1,108 @@
+<!doctype html>
+{% load static %}
+{% block stBase %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/images/i-learning-logo-only-white.png" type="image/png">
+    <title>{% block title %}Trial{% endblock title %}</title>
+     {% comment %} remix icon cdn for icons {% endcomment %}
+     <link
+     href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+     rel="stylesheet"
+   />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static "css/student/base.css" %}">
+    {% block stCss %}{% endblock stCss %}
+   
+    
+
+</head>
+  <body class="">
+   
+    <div class="main-container d-flex">
+        
+        <div class="sidebar theme-shadow" id="side_nav">
+            <div class="header-box  px-2 pt-3 pb-4 d-flex justify-content-between">
+                
+                <button class="btn fs-4 close-btn d-md-none d-block px-1 py-0  "><i class="fa-solid fa-xmark"></i></button>
+                 <img src="/static/images/i-learning-logo.png" style="height: 55px" alt="" class="mx-auto">
+         </div>
+         <div class="side-elements d-flex flex-column ">
+            <div class="sidebar-elements-top side-bar-element">
+                <ul class="list-unstyled px-4 ">
+                    <li class="{% block dashActive %}{% endblock dashActive %}  py-2"><a href="/student/dashboard/"  class="text-decoration-none px-3 "><i class="fa-solid fa-house me-2"></i> Dashboard</a></li>
+                    <li class="{% block videoActive %}{% endblock videoActive %} py-2"><a href="/student/videoLectures/" class="text-decoration-none px-3 "><i class="fa-solid fa-video me-2"></i>  Lectures</a></li>
+                    <li class="{% block eNotesActive %}{% endblock eNotesActive %} py-2"><a href="/student/eNotes/" class="text-decoration-none px-3 "><i class="fa-solid fa-file-pdf me-2"></i> ENotes</a></li>
+                    <li class="{% block assignActive %}{% endblock assignActive %} py-2"><a href="/student/assignments/" class="text-decoration-none px-3 "><i class="fa-solid fa-list-check me-2"></i> Assignments</a></li>
+                    <li class="{% block myBatchesActive %}{% endblock myBatchesActive %} py-2"><a href="/student/myBatches/" class="text-decoration-none px-3 "><i class="fa-solid fa-people-roof"></i> My Batches</a></li>
+                    <li class="{% block classTimeActive %}{% endblock classTimeActive %} py-2"><a href="/student/timings/" class="text-decoration-none px-3 "><i class="fa-solid fa-clock me-2"></i> Class Timing</a></li>
+                    <li class="{% block materialActive %}{% endblock materialActive %} py-2"><a href="/student/studyMaterials/" class="text-decoration-none px-3 "><i class="fa-brands fa-uncharted me-2"></i> Softwares</a></li>
+                    <li class="{% block batchActive %}{% endblock batchActive %} py-2"><a href="/student/batches/" class="text-decoration-none px-3 "><i class="fa-solid fa-users-rectangle me-2"></i> Batches</a></li>
+                    <li class="{% block doubtsActive %}{% endblock doubtsActive %} py-2"><a href="/student/doubts/" class="text-decoration-none px-3 "> <img src="/static/images/alpha-png.png" style="height: 23px;" class="me-2" /> Doubts Ai</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="sidebar-elements-bottom side-bar-element">
+                <hr class="hr mx-2 " >
+                <ul class="list-unstyled px-4 ">
+                    
+                    <li class="{% block profileActive %}{% endblock profileActive %} py-2"><a href="/student/profile/" class="text-decoration-none px-3 "> <i class="fa-solid fa-user me-2"></i> Profile </a></li>
+                    <li class="{% block settingActive %}{% endblock settingActive %} py-2"><a href="/student/settings/" class="text-decoration-none px-3 "> <i class="fa-solid fa-gear me-2"></i> Settings </a></li>
+                    <li class="{% block LogoutActive %}{% endblock LogoutActive %} py-2"><a href="/student/logout" class="text-decoration-none px-3 text-danger "><i class="fa-solid fa-right-from-bracket me-2"></i> LogOut</a></li>
+                    
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content ">
+            <nav class="navbar px-3  bg-body-tertiary  py-4">
+                <div class="container-fluid">
+                    <div class="content-nav d-flex justify-content-between  d-md-none ">
+                        <button class="btn open-btn  d-block px-1 py-0  "><i class="fa-solid fa-bars"></i></button> 
+                        <img src="/static/images/i-learning-logo.png" style="height: 40px" alt="" class="">
+                    </div>
+                   
+                  <div class="profile-container  ms-auto d-flex align-items-center">
+                    <small class="d-md-block d-none">Hi , <b style="color:var(--c-brand)"> {{st.fname}}</b></small>
+                    <div class="ms-3 me-md-2 profile-pic-container">
+                        <a href="/student/profile/"><img src={{st.image.url}} style="width: 40px;"alt=""></a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              
+            <div class="main-content ">
+                {% block stContent %}
+              
+               {% endblock stContent %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        {% comment %} $(".side-bar-element ul li").on('click',function(){
+            $(".side-bar-element ul li.active").removeClass("active");
+            $(this).addClass("active");
+
+        }) {% endcomment %}
+        $(".open-btn").on('click',function(){
+            $(".sidebar").addClass("active");
+        })
+        $(".close-btn").on('click',function(){
+            $('.sidebar').removeClass("active");
+            
+        })
+
+    </script>
+    {% block sJs %}{% endblock sJs %}
+</body>
+</html>
+{% endblock stBase %}

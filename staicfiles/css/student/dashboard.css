@@ -1,0 +1,38 @@
+#side_nav{
+    
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.2s;
+}
+.content{
+    
+    min-height: 100vh;
+    width: 100%;
+}
+hr.hr{
+    color: white;
+    
+}
+.side-bar-element ul li.active{
+    background-color: rgb(92, 80, 255);
+    border-radius: 5px;
+}
+
+.side-bar-element ul li.active a,ul li a:hover{
+    color: rgb(255, 255, 255);
+}
+.side-bar-element ul li a{
+    color: rgb(0, 0, 0);
+}
+
+@media (max-width: 767px){
+    #side_nav{
+        margin-left: -250px;
+        position:fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    #side_nav.active{
+        margin-left: 0;
+    }
+}

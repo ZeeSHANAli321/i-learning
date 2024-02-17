@@ -1,0 +1,121 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}DoubtsAi{% endblock title %}
+{% block doubtsActive %}active{% endblock doubtsActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+<link rel="stylesheet" href="/static/css/student/doubtAi.css">
+<style>
+
+</style>
+
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5 doubtsContainer" id="batchContainer">
+            <div class="doubtBase">
+
+                <!-- Header of Doubts ai -->
+                <div class="row" style="display: flex;">
+                    <div class="col-md-9 mx-auto"style="display: flex;justify-content:center;align-items:center;flex-direction:column">
+                        <img src="/static/images/alpha-png.png" style="height: 20vh;" class="mx-auto text-center" />
+                        <h1>DoubtsAi</h1>
+                    </div>
+                
+                </div>
+
+                <!-- List of all chatBases  -->
+                <div class="row" style="display: flex;">
+                    <div class="col-md-9 mx-auto">
+                        {% if rCB %}
+                        <small>Your Previes Doubts</small>
+                        <div class="chatBaseList pb-3">
+                            
+                            
+                            {% for s in rCB %}
+                                <!-- {% if s.chats.all %}
+                                    {% with fc=s.chats.all.0 %}
+                                    <a href="{{s.id}}/" class="chatBases p-2">
+                                        {{ fc.query }}
+                                        
+                                    </a>
+                                    {% endwith %}
+                                {% endif %} -->
+
+                                <a href="{{s.id}}/" class="chatBases p-2">
+                                    {{ s.name }}
+                                    
+                                </a>
+                            {% endfor %}
+                            {% else %}
+                                     
+                            {% endif %}
+                        </div>
+                    </div>
+                
+                </div>
+
+            </div>
+            <!-- Absolute input  -->
+            <div class="inputContainer">
+                <div class="container mx-auto">
+                    <div class="row ">
+                        <form id="queryForm" method="post" >
+                            {% csrf_token %}
+                        <div class="col-8 mx-auto d-flex ">
+                            <div class="input mx-auto">
+                                <textarea name="query" id="input-query" class="p-2"  rows="1" ></textarea>
+                                <button  type="submit"   id="SubBTN"><i id="SendBtn" class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const sendBTN = document.getElementById('SendBtn');
+    function submitForm(event){
+        if(sendBTN.classList.contains("fa-paper-plane")){
+            sendBTN.classList.remove("fa-paper-plane");
+            sendBTN.classList.add("fa-spinner");
+            event.preventDefault(); 
+            setTimeout(()=>{
+                document.getElementById("queryForm").submit();
+            },1000)
+        }
+        else{
+            null
+        }
+
+        
+    }
+    
+    inputss=document.getElementById("input-query");
+    
+    inputss.addEventListener("keydown",(event)=>{
+        if(event.keyCode == 13){
+            event.preventDefault()
+            submitForm(event);
+        }
+    })
+
+
+    sendBTN.addEventListener('click',submitForm)
+
+
+    // Add an event listener for input changes
+    inputss.addEventListener('input', function() {
+        // Set the height of the textarea based on its content
+        inputss.style.height = 'auto';
+        inputss.style.height = (inputss.scrollHeight) + 'px';
+    });
+    
+</script>
+{% endblock stContent %}

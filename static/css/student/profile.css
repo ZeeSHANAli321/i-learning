@@ -1,0 +1,72 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#profile-container{
+    
+    border-radius: 20px;
+    box-shadow:1px 0px 25px 8px rgba(0,0,0,0.08);
+}
+
+
+#profile-pic{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    background-color: #4e57d4;
+    border: 2px solid var(--c-brand);
+    overflow: hidden;
+}
+#profile-pic{
+    position: relative;
+}
+.editPic{
+    
+    background-color: #6971dd81;
+    display: none;
+    height: 200px;
+    width: 200px;
+   font-size: 40px ;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+    color: white;
+
+}
+.editPic a{
+    text-decoration: none;
+    color:white;
+}
+
+
+#profile-pic:hover .editPic{
+    transition: var(--transistion);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}
+#profile-pic .editPic:hover{
+    color: var(--c-brand);
+}
+
+#p-data-table{
+    
+}
+#p-data-table tr{
+  
+}
+#p-data-table tr td{
+  
+    width: 10%;
+}
+
+@media(max-width:425px){
+    #p-data-table tr td{
+        font-size: 12px;
+        
+    } 
+}

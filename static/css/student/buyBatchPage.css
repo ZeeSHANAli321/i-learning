@@ -1,0 +1,32 @@
+#categoriHead img{
+    height: 50px !important;
+}
+#previewContainer iframe{
+    width: 300px!important;
+    height: 200px!important;
+}
+.allshadow{
+    box-shadow: var(--box-all-shadow)!important;
+}
+
+#priceTable{
+  width: 100%;
+  margin: auto;
+
+}
+#priceTable tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.372);
+}
+#priceTable tr td{
+    text-align: start;
+}
+
+/* #batchCard .Price{
+    color:var(--c-brand)!important; 
+} */
+@media(max-width:330px){
+    #previewContainer iframe{
+        width: 250px!important;
+        height: 200px!important;
+    }
+}

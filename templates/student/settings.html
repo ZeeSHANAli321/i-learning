@@ -1,0 +1,61 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Settings{% endblock title %}
+{% block settingActive %}active{% endblock settingActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+<style>
+    #setting-options li{
+        border: 2px solid #0000002e;
+        list-style: none;
+        
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #setting-options li:hover{
+        transition: var(--transistion);
+       border: 2px solid var(--c-brand);
+    }
+    #setting-options li span:nth-child(2):hover{
+        transition: var(--transistion);
+        border: 2px solid var(--c-brand);
+    }
+    a{
+        color:black;
+        text-decoration: none;
+    }
+</style>
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-solid fa-gear me-2"></i> Settings</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row px-md-5 py-1" style="border:1px sol" >
+              <ul id="setting-options">
+              <a href="changePass/">  <li>
+                    <span class="text-danger">Change Password </span> <span style="width: 30px;height: 30px;text-align: center;"><i class="fa-solid fa-angle-right"></i></span>
+                </li></a>
+                <a href="/student/editProfile/"> <li>
+                    <span>Update Profile  </span><span style="width: 30px;height: 30px;text-align: center;"><i class="fa-solid fa-angle-right"></i></span>
+                </li></a>
+                <a href="complain/"><li>
+                    <span>Register  a complaint  </span> <span style="width: 30px;height: 30px;text-align: center;"><i class="fa-solid fa-angle-right"></i></span>
+                </li></a>
+              </ul>
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock stContent %}

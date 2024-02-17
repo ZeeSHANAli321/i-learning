@@ -1,0 +1,64 @@
+{% extends "user/base.html" %}
+{% block title %}Login{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/signUp.css">
+{% endblock style %}
+{% block body %}
+<!-- SignUp -->
+<section id="SignUp" class="section-padding">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+          <div class="section-title">
+            <h1 class="display-4 text-white fw-semibold">LogIn</h1>
+            <div class="line bg-white"></div>
+            <p class="text-white">
+              Login in here to access all your batches and other benefits provided by i-Learning.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+       
+        <div class="col-lg-8">
+          <form
+          method="post"
+            class="row g-3 p-lg-5 p-4 bg-white theme-shadow"
+            data-aos="fade-down"
+            data-aos-delay="250"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <div class="form-group col-lg-12">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                placeholder="Enter your Email id "
+                required
+              />
+            </div>
+            <div class="form-group col-lg-12">
+              <input
+                type="password"
+                class="form-control"
+                name="pswrd"
+                placeholder="Enter Your password"
+                required
+              />
+            </div>
+            
+            <div class="form-group col-lg-12 d-grid">
+              <button type="submit" class="btn btn-brand">Log In</button>
+              <small class="ms-auto my-3"><a href="/resetPass" class="mx-1"><b>Forget Password!</b></a></small>
+              <small class="ms-auto my-3">If you are new click here to <a href="/signUp" class="mx-1"><b>Register!</b></a></small>
+            </div>
+          </form>
+        </div>
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- end SignUp -->
+{% endblock body %}

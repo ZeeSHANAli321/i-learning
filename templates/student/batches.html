@@ -1,0 +1,45 @@
+{% extends "student/base.html" %}
+{% load static %}
+{% block title %}Batches{% endblock title %}
+{% block batchActive %}active{% endblock batchActive %}
+{% block stCss %}
+<link rel="stylesheet" href="/static/css/student/batches.css">
+
+{% endblock stCss %}
+
+{% block stContent %}
+<div class="container mx-auto " >
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5 py-5" id="batchContainer">
+            <div class="row">
+                <div class="col-12 px-3 mx-3" >
+                    <h2 id="categoriHead"><i class="fa-solid fa-users-rectangle me-2"></i>Batches </h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="display: flex;align-items: stretch;">
+                {% for b in batch %}
+                    <div class="col-lg-4 col-sm-6 " >
+                        <div class="services text-center theme-shadow pt-lg-5 p-4 "style="height:100%;"id="batchCard" >
+                        <div class="icon-box ">
+                            <img src={{b.icon.url}} height="50px" />
+                        </div>
+                        <h5 class="mt-4 mb-3">{{b.name}}</h5>
+                        <p class="">
+                           {{b.about}}
+                        </p>
+                        {% if b in st.sBatch.all %}
+                        <a href="/student/viewBatch/{{b.id}}/" class="btn btn-brand ms-lg-3">Enter Batch </span> </a>
+                        {% else %}
+                        <a href="/student/buyBatch/{{b.id}}" class="btn btn-brand ms-lg-3">Enroll now for <span>Rs {{b.price}}</span> </a>
+
+                        {% endif %}
+                    </div>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock stContent %}
