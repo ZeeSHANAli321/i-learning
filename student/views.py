@@ -99,7 +99,7 @@ def timings(request):
         return HttpResponse('<body bgcolor="black"><h1 style="color:blue;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">404 Not-found</h1></body>')
 
 #Doubts ai view 
-def doubts(request):
+""" def doubts(request):
     st=isSession(request)
     if st!=None:
         #To show list of all chatbase in reverse order
@@ -180,7 +180,7 @@ def doubts_C(request,cB):
         return render(request,'student/doubts_C.html',{'chat':cBchats,'st':st,'cB':cBase,'cBid':cB})
     else:
         return HttpResponse('<body bgcolor="black"><h1 style="color:blue;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">404 Not-found</h1></body>')
-    
+    """ 
 def batches(request):
     st=isSession(request)
     if st!=None:

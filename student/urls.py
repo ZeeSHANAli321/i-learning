@@ -11,8 +11,9 @@ urlpatterns = [
     path('videoLectures/', views.videoLectures,name='videosLectures'),
     path('playVideo/<int:vId>/<int:bId>/', views.playVideo,name='playVideo'),
     path('assignments/', views.assignments,name='assignments'),
-    path('doubts/', views.doubts,name='doubts'),
-    path('doubts/<int:cB>/',views.doubts_C),
+    #Removing Doubts ai as i dont have working api 
+    #path('doubts/', views.doubts,name='doubts'),
+    #path('doubts/<int:cB>/',views.doubts_C),
     path('eNotes/', views.eNotes,name='eNotes'),
     path('studyMaterials/', views.studyMaterials,name='studyMaterial'),
     path('batches/', views.batches,name='batches'),

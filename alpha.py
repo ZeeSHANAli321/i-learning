@@ -5,7 +5,7 @@ import random
 import pygame
 """ from youtubesearchpython import VideosSearch, VideoSortOrder  # Import the necessary classes """
 
-apikey = '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'
+apikey = 'PUT_YOUR_API-HERE'
 
 # Initialize the speech recognition engine
 
